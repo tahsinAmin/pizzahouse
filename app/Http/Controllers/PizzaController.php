@@ -31,9 +31,21 @@ class PizzaController extends Controller
     }
 
     public function store(){
-        error_log(request('name'));
-        error_log(request('type'));
-        error_log(request('base'));
-        return redirect("/");
+        // error_log(request('name'));
+        // error_log(request('type'));
+        // error_log(request('base'));
+
+        $pizza = new Pizza();
+        $pizza->name = request('name');
+        $pizza->type = request('type');
+        $pizza->base = request('base');
+        $pizza->toppings = request('toppings');
+
+        // error_log($pizza);
+        $pizza->save();
+        // error_log(request('toppings'));
+
+        return redirect("/")->with('mssg', 'Thank you for your order');
+
     }
 }
