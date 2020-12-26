@@ -7,6 +7,11 @@ use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
+    // only if you want all the function to have the auth
+    // public function __constructor(){
+    //     $this->middleware('auth');
+    // }
+
     public function index(){
 
         // $pizzas = Pizza::all();
